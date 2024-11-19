@@ -8,7 +8,7 @@ public class UsersRepositoryJdbcImpl implements UserRepository {
     private final Connection connection;
     private static final String SQL_SELECT_FROM_DRIVER = "select * from driver";
     private static final String SQL_SELECT_BY_ID_FROM_DRIVER = "select * from driver where id = ?";
-    private static final String SQL_INSERT_TO_DRIVER = "insert into driver(name, surname, patronymic, email, " +
+    private static final String SQL_INSERT_TO_DRIVER = "insert into driver(name, surname, patronymic, §, " +
             "age, driving_experience) values (?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE_DRIVER = "update driver set name = ?, surname = ?, patronymic = ?, " +
             "email = ?, age = ?, driving_experience = ? where id = ?";
