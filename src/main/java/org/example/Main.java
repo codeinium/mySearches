@@ -12,14 +12,13 @@ public class Main {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
 
-        ResultSet result = statement.executeQuery("select * from driver where age > 25;"); // sql запрос на вывод водителей возраст которых больше 25
+        ResultSet result = statement.executeQuery("select * from driver where age > 25;");
 
         System.out.println();
 
         while(result.next()){
-            System.out.println(result.getInt("id") + " " + result.getString("name") + " " + result.getString("age")); // вывод этого запроса
+            System.out.println(result.getInt("id") + " " + result.getString("name") + " " + result.getString("age"));
         }
-
 
         String sqlInsertUser = "insert into driver(name, surname, age) values (?,?,?);";
         PreparedStatement preparedStatement = connection.prepareStatement(sqlInsertUser);
@@ -33,7 +32,6 @@ public class Main {
             preparedStatement.setString(2, lastName);
             preparedStatement.setInt(3, age);
 
-            /*  для того чтобы добавлять сразу несколько строк за 1 запрос я использовал batch*/
             preparedStatement.addBatch();
         }
 
